@@ -69,7 +69,7 @@ export const searchHeroesAction = (name) => async (dispatch, getState) => {
 
 export const detailHeroeAction = (id) => async (dispatch) => {
   try {
-    const res = await axios.get("/10159842194449266/" + id);
+    const res = await axios.get("https://jsonplaceholder.typicode.com/posts/" + id);
     dispatch({
       type: DETAIL_H_OK,
       payload: [res.data],

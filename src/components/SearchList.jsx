@@ -7,6 +7,7 @@ import { detailHeroeAction } from "../redux/actionReducers"
 import "./searchList.css"
 
 const SearcList = () => {
+  // @ts-ignore
   const heroes = useSelector(store => store.searchList.array)
   const dispatch = useDispatch();
   return (

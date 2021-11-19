@@ -1,12 +1,10 @@
 import React from "react";
-
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
 } from "react-router-dom";
-// import Details from "../components/Details";
 import Home from "../components/Home";
 // import Search from "../components/Search";
 import NavBarMenu from '../components/NavBarMenu'
@@ -14,6 +12,7 @@ import ProtectedRoutes from "./ProtectedRoutes";
 import Login from "../components/Login";
 // import About from "../components/About";
 import { useSelector } from "react-redux";
+import Details from "../components/Details";
 
 const Routes = (props) => {
   // @ts-ignore
@@ -25,12 +24,12 @@ const Routes = (props) => {
 
       <Switch>
         <Route exact path="/about" component={Home} />
-        {/* <ProtectedRoutes
+        <ProtectedRoutes
           exact
           path="/details"
           component={Details}
           isAuth={true}
-        /> */}
+        />
         {/* <ProtectedRoutes
           exact
           path="/search"

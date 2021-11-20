@@ -1,19 +1,18 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { addGoodHeroeAction, addBadHeroeAction } from "../redux/actionReducers"
-import { detailHeroeAction } from "../redux/actionReducers"
+import { detailAction, removePost } from "../redux/actionReducers"
 // import Details from "./Details";
 import "./searchList.css"
 
 const SearcList = () => {
   // @ts-ignore
-  const heroes = useSelector(store => store.searchList.array)
+  const posts = useSelector(store => store.searchList.array)
   const dispatch = useDispatch();
   return (
     <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4" >
-      {heroes &&
-        heroes.map(item => (
+      {posts &&
+        posts.map(item => (
           <div className="card" >
             <div key={item.id} className="gridcard" >
               <div className="card-body">
@@ -34,18 +33,18 @@ const SearcList = () => {
                   <Link to='details'>
                     <button
                       className="btn btn-info btn-m x1 float-center"
-                      onClick={() => dispatch(detailHeroeAction(item.id))}
+                      onClick={() => dispatch(detailAction(item.id))}
                     >Info</button></Link>
 
-                  <Link to='details'>
+                  {/* <Link to='details'>
                     <button
                       className="btn btn-success btn-m ms-3 float-center "
-                      onClick={() => dispatch(detailHeroeAction(item.id))}
-                    >Edit</button></Link>
-                  <Link to='details'>
+                      onClick={() => dispatch(detailAction(item.id))}
+                    >Edit</button></Link> */}
+                  <Link to='/'>
                     <button
                       className="btn btn-danger btn-m ms-3 float-center"
-                      onClick={() => dispatch(detailHeroeAction(item.id))}
+                      onClick={() => dispatch(removePost(item.id))}
                     >Delete</button></Link>
                 </div>
 

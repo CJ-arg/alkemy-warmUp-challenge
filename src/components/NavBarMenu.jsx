@@ -9,7 +9,6 @@ const Navbarmenu = () => {
             <div className='leftSide'>
                 <div className='links' id={showLinks ? 'hidden' : ''}>
                     <a href='/home'>Home </a>
-                    <a href='/search'> Build</a>
                     <a href='/about'>About </a></div>
                 <button onClick={() => setShowLinks(!showLinks)}>  Open  </button>
             </div>

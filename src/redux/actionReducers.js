@@ -3,15 +3,14 @@ import axios from "axios";
 const dataInicial = {
   isAuth: null,
   array: [],
-  goodOnes: [],
-  badOnes: [],
   detail: [],
 };
 const IS_AUTH_SET = "IS_AUTH_SET";
 const SEARCH_H_OK = "SEARCH_H_OK";
 const DETAIL_H_OK = "DETAIL_H_OK";
-const GOODTEAM_H_OK = "GOODTEAM_H_OK";
-const BADTEAM_H_OK = "BADTEAM_H_OK";
+const DELETE_H_OK = "DELETE_H_OK";
+const EDIT_H_OK = "EDIT_H_OK";
+
 
 //reducer
 export default function heroesReducer(state = dataInicial, action) {
@@ -22,22 +21,10 @@ export default function heroesReducer(state = dataInicial, action) {
       return { ...state, array: action.payload };
     case DETAIL_H_OK:
       return { ...state, detail: action.payload };
-    case GOODTEAM_H_OK:
-      if (state.goodOnes.length >= 3) {
-        alert(
-          "You can`t select more than 3 good heroes you must delete one first"
-        );
-        return state;
-      }
-
-      return { ...state, goodOnes: [...state.goodOnes, action.payload] };
-    case BADTEAM_H_OK:
-      console.log(action.payload, "BADTEAM_H_OK");
-      if (state.badOnes.length >= 3) {
-        console.log("no se pueden agragr mas de 3 heroes elimine uno ");
-        return state;
-      }
-      return { ...state, badOnes: [...state.badOnes, action.payload] };
+    case EDIT_H_OK:
+      return { ...state, detail: action.payload };
+    case DELETE_H_OK:
+      return { ...state};
     default:
       return state;
   }
@@ -67,7 +54,7 @@ export const searchHeroesAction = (name) => async (dispatch, getState) => {
   }
 };
 
-export const detailHeroeAction = (id) => async (dispatch) => {
+export const detailAction = (id) => async (dispatch) => {
   try {
     const res = await axios.get("https://jsonplaceholder.typicode.com/posts/" + id);
     dispatch({
@@ -78,54 +65,29 @@ export const detailHeroeAction = (id) => async (dispatch) => {
     console.log(error);
   }
 };
-export const addGoodHeroeAction = (id) => async (dispatch) => {
-  try {  const res = await axios.get("/10159842194449266/" + id);
-        let local = JSON.parse(localStorage.getItem("goodteam"));
-      if (local === null) {
-        dispatch({
-          type: GOODTEAM_H_OK,
-          payload: res.data,
-        });
-        localStorage.setItem(
-          "goodteam",
-          JSON.stringify([res.data])
-        );
-      } else if (local.length < 3 && !local.some(hero => hero.id == id)) {
-        dispatch({
-          type: GOODTEAM_H_OK,
-          payload: res.data,
-        });
-          console.log('entré en el else if g');
-          localStorage.setItem(
-            "goodteam",
-              JSON.stringify([...local, res.data])
-          );      }
+export const editPost = (id,item) => async (dispatch) => {
+  try {
+    const res = await axios.put("https://jsonplaceholder.typicode.com/posts/" + id, item);
+ dispatch({
+      type: EDIT_H_OK,
+      payload: [res.data],
+    });
+  console.log(res, 'edit');
   } catch (error) {
     console.log(error);
-  }};
+  }
+};
 
-export const addBadHeroeAction = (id) => async (dispatch) => {
-  try {  const res = await axios.get("/10159842194449266/" + id);
-    let local = JSON.parse(localStorage.getItem("badteam"));
- if (local === null) {
-        dispatch({
-          type: BADTEAM_H_OK,
-          payload: res.data,
-        });    
-    localStorage.setItem(
-      "badteam",
-      JSON.stringify([res.data])
-    );}
-else if (local.length < 3 && !local.some(hero => hero.id == id)) {
-        dispatch({
-          type: BADTEAM_H_OK,
-          payload: res.data,
-        });
-          console.log('entré en el else if b');
-          localStorage.setItem(
-            "badteam",
-              JSON.stringify([...local, res.data])
-          );      }
+
+
+export const removePost = (id) => async (dispatch) => {
+  try {
+    const res = await axios.delete("https://jsonplaceholder.typicode.com/posts/" + id);
+    dispatch({
+      type: DELETE_H_OK,
+      
+    });
+       
   } catch (error) {
     console.log(error);
   }

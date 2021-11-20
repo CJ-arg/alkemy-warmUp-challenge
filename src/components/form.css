@@ -1,0 +1,24 @@
+.todoInput {
+  border-radius: 3px;
+  border: 1px black solid;
+  background-color: rgb(255, 255, 255);
+  text-align: start;
+  width: 600px;
+}
+.todoButton {
+  border: 1px black solid;
+}
+.todoButton2 {
+  display: flex;
+  align-items: flex-start;
+}
+.priority {
+  width: 500px;
+  height: 45px;
+  letter-spacing: 3px;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  padding-left: 5px;
+  color: rgb(16, 17, 88);
+}

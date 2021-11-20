@@ -2,12 +2,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
+import { editPost, removePost } from "../redux/actionReducers"
 import "./details.css"
 
 
 const Details = () => {
   const postDetail = useSelector(store => store.searchList.detail)
-  console.log(postDetail, 'goodHeroes');
   const dispatch = useDispatch();
   return (
     <div className="contDetail">
@@ -22,12 +22,12 @@ const Details = () => {
           <Link to='details'>
             <button
               className="btn btn-success btn-m ms-3 float-center "
-              onClick={() => dispatch(detailHeroeAction(item.id))}
+              onClick={() => dispatch(editPost(item.id, item))}
             >Edit</button></Link>
-          <Link to='details'>
+          <Link to='home'>
             <button
               className="btn btn-danger btn-m ms-3 float-center"
-              onClick={() => dispatch(detailHeroeAction(item.id))}
+              onClick={() => dispatch(removePost(item.id))}
             >Delete</button></Link>
         </div>
       ))

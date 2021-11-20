@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <>
       <div className="homeContainer">
-        <div> <Form /> </div>
+
         <SearcList />
       </div>
 

@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import { newPost } from "../redux/actionReducers"
+import { useDispatch } from 'react-redux'
 import "./form.css";
 
 
 const Form = ({ addTask }) => {
+
+  const dispatch = useDispatch();
   const [inputTitleValue, setInputTitleValue] = useState("");
   const [inputValue, setInputValue] = useState("");
 
@@ -23,14 +27,14 @@ const Form = ({ addTask }) => {
       <div className="row">
         <div className="col-sm-2"></div>
 
-        <div className="col-sm-6">
+        <div className="col-sm-8">
           <input
             value={inputValue}
             onChange={handleInputChange}
             className="todoInput"
             placeholder="title..."
           />
-          <input
+          <textarea
             value={inputValue}
             onChange={handleInputChange}
             className="todoInput"
@@ -39,12 +43,15 @@ const Form = ({ addTask }) => {
           <div>
           </div>
         </div>
-        <div className="col-sm-4 todoButton2">
-          <button
-            className="btn btn-danger btn-m ms-3 float-center"
-            onClick={() => dispatch(newPost(item.id))}
-          >Post</button>
-        </div>
+        <br />
+      </div>
+
+      <div className="todoButton2">
+
+        <button
+          className="btn btn-dark btn-m ms-3 float-center"
+          onClick={() => dispatch(newPost(item.id))}
+        >Post</button>
       </div>
     </form >
   );

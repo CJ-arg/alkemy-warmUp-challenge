@@ -7,6 +7,7 @@ const dataInicial = {
 };
 const IS_AUTH_SET = "IS_AUTH_SET";
 const SEARCH_H_OK = "SEARCH_H_OK";
+const POST_H_OK = "POST_H_OK";
 const DETAIL_H_OK = "DETAIL_H_OK";
 const DELETE_H_OK = "DELETE_H_OK";
 const EDIT_H_OK = "EDIT_H_OK";
@@ -77,8 +78,18 @@ export const editPost = (id,item) => async (dispatch) => {
     console.log(error);
   }
 };
-
-
+export const newPost = (id,item) => async (dispatch) => {
+  try {
+    const res = await axios.post("https://jsonplaceholder.typicode.com/posts/" + id, item);
+ dispatch({
+      type: POST_H_OK,
+      payload: [res.data],
+    });
+  console.log(res, 'edit');
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const removePost = (id) => async (dispatch) => {
   try {

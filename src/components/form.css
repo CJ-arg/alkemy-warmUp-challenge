@@ -4,24 +4,13 @@
   background-color: rgb(255, 255, 255);
   text-align: start;
 font-size: 1rem;
-  width: 600px;
+  width: 90%;
 }
-.todoButton {
-  border: 1px black solid;
-}
+
 .todoButton2 {
   display: flex;
   align-items: flex-end;
 justify-content: flex-end;
 max-width: 50%;
 }
-.priority {
-  width: 500px;
-  height: 45px;
-  letter-spacing: 3px;
-  border: none;
-  border-radius: 4px;
-  font-size: 18px;
-  padding-left: 5px;
-  color: rgb(16, 17, 88);
-}
+

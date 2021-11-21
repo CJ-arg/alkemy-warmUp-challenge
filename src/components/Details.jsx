@@ -43,7 +43,7 @@ const Details = () => {
   }
 
   return (isEditing ? <div className="contDetail">
-    <div className="card1 mb-3 detailcard " >
+    <div className="card1 mb-3 detailcard" >
       <div className="card-body">EDIT YOUR POST </div>
 
       <input
@@ -56,46 +56,49 @@ const Details = () => {
       <textarea
         value={bodyEdit}
         onChange={handleInputChange}
-
         onKeyDown={handleOnKeyDown}
         className="todoInput"
         autoFocus={true}
-
         placeholder="your post...."
-      /> </div> <button
+      />
+      <div><button
         className="btn btn-success btn-m ms-3 float-center "
         onClick={handleOnClickEditSubmit}
-      >Submit</button>
+      >Submit</button></div>
+
+    </div>
   </div> :
 
-    <div className="contDetail">
+    <div >
       {postDetail.map((item) => (
-        <div key={item.id} className="card1 mb-3 detailcard " >
-          <div className="card-body">
-            <p>{item.name}</p>
-            <div className="user-text">USER:{item.userId} Post: {item.id} </div>
-            <div className="title-div">  <span className="card-text">{item.title.toUpperCase()} </span><br /></div>
-            <div className="title-div">  <span className="card-text">{item.body} </span><br /></div>
-          </div>
-          <button
-            className="btn btn-success btn-m ms-3 float-center "
-            onClick={() => (setRenderForm(!renderForm))}
-          >Post</button>
-          <Link to='details'>
+        <div className="contDetail">
+          <div key={item.id} className="card1 mb-3 detailcard " >
+            <div className="card-body">
+              <p>{item.name}</p>
+              <div className="user-text">USER:{item.userId} Post: {item.id} </div>
+              <div className="title-div">  <span className="card-text">{item.title.toUpperCase()} </span><br /></div>
+              <div className="title-div">  <span className="card-text">{item.body} </span><br /></div>
+            </div>
             <button
               className="btn btn-success btn-m ms-3 float-center "
-              onClick={handleOnClickEdit}
-            >Edit</button></Link>
+              onClick={() => (setRenderForm(!renderForm))}
+            >Post</button>
+            <Link to='details'>
+              <button
+                className="btn btn-success btn-m ms-3 float-center "
+                onClick={handleOnClickEdit}
+              >Edit</button></Link>
 
-          <Link to='home'>
-            <button
-              className="btn btn-danger btn-m ms-3 float-center"
-              onClick={() => dispatch(removePost(item.id))}
-            >Delete</button></Link>
-        </div>
+            <Link to='home'>
+              <button
+                className="btn btn-danger btn-m ms-3 float-center"
+                onClick={() => dispatch(removePost(item.id))}
+              >Delete</button></Link>
+          </div> </div>
       ))
       }
-      {renderForm && <Form />}
+      <div>{renderForm && <Form />}</div>
+
     </div >
   );
 };

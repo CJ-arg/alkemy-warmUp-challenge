@@ -1,16 +1,23 @@
 .contDetail {
+display: flex;
+justify-content: center;
   align-items: center;
+
 }
 
 .detailcard {
   margin-left: 2%;
   text-align: center;
   margin-top: 15px;
+background-color: rgba(137, 43, 226, 0.096);
+border-radius: 5px;
+padding: 1%;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .card1 {
   border: 3px solid;
-  max-width: 70%;
+  
   overflow: auto;
 }
 
@@ -53,11 +60,15 @@
   }
 }
 @media only screen and (max-width: 800px) {
-  .card1 img {
-    max-width: 250px;
-  }
+
   .card1 {
     border: 1px solid;
-    max-width: 55%;
+    max-width: 350px;
+  }
+  .card-text {
+margin-top: -10;
+    font-size: 15px;
+
+   
   }
 }

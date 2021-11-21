@@ -32,7 +32,7 @@ const Form = ({ addTask }) => {
       <div className="row">
         <div className="col-sm-2"></div>
 
-        <div className="col-sm-8">
+        <div className="col-sm-9">
           <input
             value={inputTitleValue}
             onChange={handleInputChangeTitle}

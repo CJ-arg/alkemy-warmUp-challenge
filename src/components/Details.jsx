@@ -80,21 +80,22 @@ const Details = () => {
               <div className="title-div">  <span className="card-text">{item.title.toUpperCase()} </span><br /></div>
               <div className="title-div">  <span className="card-text">{item.body} </span><br /></div>
             </div>
-            <button
+            <div className="mb-0" > <button
               className="btn btn-success btn-m ms-3 float-center "
               onClick={() => (setRenderForm(!renderForm))}
             >Post</button>
-            <Link to='details'>
-              <button
-                className="btn btn-success btn-m ms-3 float-center "
-                onClick={handleOnClickEdit}
-              >Edit</button></Link>
+              <Link to='details'>
+                <button
+                  className="btn btn-success btn-m ms-3 float-center "
+                  onClick={handleOnClickEdit}
+                >Edit</button></Link>
 
-            <Link to='home'>
-              <button
-                className="btn btn-danger btn-m ms-3 float-center"
-                onClick={() => dispatch(removePost(item.id))}
-              >Delete</button></Link>
+              <Link to='home'>
+                <button
+                  className="btn btn-danger btn-m ms-3 float-center"
+                  onClick={() => dispatch(removePost(item.id))}
+                >Delete</button></Link></div>
+
           </div> </div>
       ))
       }

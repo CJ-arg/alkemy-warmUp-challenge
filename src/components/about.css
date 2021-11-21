@@ -1,0 +1,10 @@
+.contText {
+  text-align: center;
+margin-top: 3%;
+padding: 3%;
+}
+.noCardText p {
+  text-align: center;
+  font-size: large;
+  margin-top: 2rem;
+}

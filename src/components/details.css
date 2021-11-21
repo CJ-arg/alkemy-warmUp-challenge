@@ -30,6 +30,7 @@ background-color: rgba(137, 43, 226, 0.096);
  
     .card-text {
     font-size: 20px;
+margin-bottom: 10px;
     }
 }
 @media only screen and (max-width: 1000px) {
@@ -38,6 +39,8 @@ background-color: rgba(137, 43, 226, 0.096);
 height: 400px;
 } .card-text {
     font-size: 16px;
+margin-bottom: 10px;
+display: block;
     }
   .card1 {
     border: 1px solid;
@@ -50,6 +53,7 @@ height: 400px;
     max-width: 350px;
   }
   .card-text {
+display: block;
 
     font-size: 15px;
 

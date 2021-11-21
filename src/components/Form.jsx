@@ -19,9 +19,9 @@ const Form = ({ addTask }) => {
 
   const handleFormSub = (e) => {
     e.preventDefault();
+    console.log("aca ento en handlesub", inputTitleValue, inputValue);
     if (inputValue.trim() === "") return;
-
-    newPost({ title: inputValue, completed: false, priority: checked });
+    dispatch(newPost({ title: inputTitleValue, body: inputValue }))
     setInputValue("");
     setInputTitleValue("")
   };
@@ -55,7 +55,7 @@ const Form = ({ addTask }) => {
 
         <button
           className="btn btn-dark btn-m ms-3 float-center"
-          onClick={() => dispatch(newPost(item.id))}
+          onClick={handleFormSub}
         >Post</button>
       </div>
     </form >

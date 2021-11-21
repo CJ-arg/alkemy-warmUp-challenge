@@ -22,6 +22,8 @@ export default function heroesReducer(state = dataInicial, action) {
       return { ...state, array: action.payload };
     case DETAIL_H_OK:
       return { ...state, detail: action.payload };
+case POST_H_OK:
+      return { ...state, detail: action.payload };
     case EDIT_H_OK:
       return { ...state, detail: action.payload };
     case DELETE_H_OK:
@@ -49,7 +51,7 @@ export const searchHeroesAction = (name) => async (dispatch, getState) => {
       type: SEARCH_H_OK,
       payload: res.data,
     });
-    console.log("donde esta este resultado", res.data);
+
   } catch (error) {
     console.log(error);
   }
@@ -73,19 +75,19 @@ export const editPost = (id,item) => async (dispatch) => {
       type: EDIT_H_OK,
       payload: [res.data],
     });
-  console.log(res, 'edit');
+ 
   } catch (error) {
     console.log(error);
   }
 };
-export const newPost = (id,item) => async (dispatch) => {
+export const newPost = (item) => async (dispatch) => {
   try {
-    const res = await axios.post("https://jsonplaceholder.typicode.com/posts/" + id, item);
+    const res = await axios.post("https://jsonplaceholder.typicode.com/posts/", item);
  dispatch({
       type: POST_H_OK,
       payload: [res.data],
     });
-  console.log(res, 'edit');
+  
   } catch (error) {
     console.log(error);
   }

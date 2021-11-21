@@ -1,9 +1,11 @@
+
+
 .todoInput {
   border-radius: 3px;
   border: 1px black solid;
   background-color: rgb(255, 255, 255);
   text-align: start;
-font-size: 1rem;
+font-size: 1.2rem;
   width: 90%;
 }
 

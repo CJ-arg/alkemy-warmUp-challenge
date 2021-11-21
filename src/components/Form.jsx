@@ -22,6 +22,8 @@ const Form = ({ addTask }) => {
     console.log("aca ento en handlesub", inputTitleValue, inputValue);
     if (inputValue.trim() === "") return;
     dispatch(newPost({ title: inputTitleValue, body: inputValue }))
+
+
     setInputValue("");
     setInputTitleValue("")
   };
@@ -29,10 +31,10 @@ const Form = ({ addTask }) => {
 
   return (
     <form onSubmit={handleFormSub}>
-      <div className="row">
+      <div className="row containerEdit">
         <div className="col-sm-2"></div>
 
-        <div className="col-sm-9">
+        <div className="col-sm-8">
           <input
             value={inputTitleValue}
             onChange={handleInputChangeTitle}

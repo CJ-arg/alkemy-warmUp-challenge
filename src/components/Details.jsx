@@ -43,7 +43,7 @@ const Details = () => {
   }
 
   return (isEditing ? <div className="contDetail">
-    <div className="card1 mb-3 detailcard" >
+    <div className="card1 mb-3 detailcardedit" >
       <div className="card-body">EDIT YOUR POST </div>
 
       <input
@@ -61,8 +61,9 @@ const Details = () => {
         autoFocus={true}
         placeholder="your post...."
       />
-      <div><button
-        className="btn btn-success btn-m ms-3 float-center "
+
+      <div className="editButton" ><button
+        className="btn btn-success btn-m ms-3 float-end "
         onClick={handleOnClickEditSubmit}
       >Submit</button></div>
 

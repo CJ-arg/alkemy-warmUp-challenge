@@ -2,6 +2,8 @@
 display: flex;
 justify-content: center;
   align-items: center;
+padding: 3%;
+
 
 }
 
@@ -11,54 +13,36 @@ justify-content: center;
   margin-top: 15px;
 background-color: rgba(137, 43, 226, 0.096);
 border-radius: 5px;
-padding: 1%;
+padding: 3%;
 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+.detailcardedit{
+width:80%;
+border-radius: 5px;
+padding: 3%;
+background-color: rgba(137, 43, 226, 0.096);
 
-.card1 {
-  border: 3px solid;
-  
-  overflow: auto;
 }
 
 
-.card-titleG {
-  margin-top: 1rem;
-  color: rgb(255, 174, 23);
-}
-.card-titleB {
-  margin-top: 1rem;
-  color: rgb(214, 18, 57);
-}
+
 @media only screen and (max-width: 1200px) {
-  .card1 img {
-    max-width: 250px;
-  }
-  .card1 {
-    border: 1px solid;
-    max-width: 55%;
-  }
+ 
+    .card-text {
+    font-size: 20px;
+    }
 }
 @media only screen and (max-width: 1000px) {
-  .card1 img {
-    max-width: 250px;
-  }
+   .detailcard{
+
+height: 400px;
+} .card-text {
+    font-size: 16px;
+    }
   .card1 {
     border: 1px solid;
-    max-width: 55%;
   }
-  .card-titleG {
-    font-size: medium;
-
-    margin-top: 1rem;
-    color: rgb(255, 174, 23);
   }
-  .card-titleB {
-    font-size: medium;
-    margin-top: 1rem;
-    color: rgb(214, 18, 57);
-  }
-}
 @media only screen and (max-width: 800px) {
 
   .card1 {
@@ -66,7 +50,7 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     max-width: 350px;
   }
   .card-text {
-margin-top: -10;
+
     font-size: 15px;
 
    

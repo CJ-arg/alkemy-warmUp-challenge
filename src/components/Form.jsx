@@ -13,12 +13,17 @@ const Form = ({ addTask }) => {
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
+  const handleInputChangeTitle = (e) => {
+    setInputTitleValue(e.target.value);
+  };
+
   const handleFormSub = (e) => {
     e.preventDefault();
     if (inputValue.trim() === "") return;
 
-    addTask({ title: inputValue, completed: false, priority: checked });
+    newPost({ title: inputValue, completed: false, priority: checked });
     setInputValue("");
+    setInputTitleValue("")
   };
 
 
@@ -29,8 +34,8 @@ const Form = ({ addTask }) => {
 
         <div className="col-sm-8">
           <input
-            value={inputValue}
-            onChange={handleInputChange}
+            value={inputTitleValue}
+            onChange={handleInputChangeTitle}
             className="todoInput"
             placeholder="title..."
           />

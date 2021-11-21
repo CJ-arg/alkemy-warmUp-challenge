@@ -8,15 +8,67 @@ import "./details.css"
 
 
 const Details = () => {
-  const [renderForm, setRenderForm] = useState(false)
-
   const postDetail = useSelector(store => store.searchList.detail)
+
+  const [renderForm, setRenderForm] = useState(false)
+  const [isEditing, setIsEditing] = useState(false)
+  const [titleEdit, setTitleEdit] = useState('')
+  const [bodyEdit, setBodyEdit] = useState('')
+
   const dispatch = useDispatch();
-  return (
+
+
+  const handleOnKeyDown = (e) => {
+    const key = e.keyCode
+    if (key === 13 || key === 27) {
+      setIsEditing(false)
+    }
+  }
+  const handleOnClickEdit = () => {
+    setTitleEdit(postDetail[0].title)
+    setBodyEdit(postDetail[0].body)
+    setIsEditing(true)
+  }
+  const handleInputChange = (e) => {
+    setBodyEdit(e.target.value)
+  }
+  const handleInputChangeTitle = (e) => {
+    setTitleEdit(e.target.value)
+  }
+  const handleOnClickEditSubmit = (e) => {
+    e.preventDefault
+    setTitleEdit(e.target.value)
+    setBodyEdit(e.target.value)
+    setIsEditing(false)
+  }
+
+  return (isEditing ? <div className="contDetail">
+    <div className="card1 mb-3 detailcard " >
+      <div className="card-body">EDIT YOUR POST </div>
+
+      <input
+        value={titleEdit}
+        onChange={handleInputChangeTitle}
+        onKeyDown={handleOnKeyDown}
+        className="todoInput"
+        placeholder="title..."
+      />
+      <textarea
+        value={bodyEdit}
+        onChange={handleInputChange}
+
+        onKeyDown={handleOnKeyDown}
+        className="todoInput"
+        autoFocus={true}
+
+        placeholder="your post...."
+      /> </div> <button
+        className="btn btn-success btn-m ms-3 float-center "
+        onClick={handleOnClickEditSubmit}
+      >Submit</button>
+  </div> :
+
     <div className="contDetail">
-
-
-
       {postDetail.map((item) => (
         <div key={item.id} className="card1 mb-3 detailcard " >
           <div className="card-body">
@@ -32,7 +84,7 @@ const Details = () => {
           <Link to='details'>
             <button
               className="btn btn-success btn-m ms-3 float-center "
-              onClick={() => dispatch(editPost(item.id, item))}
+              onClick={handleOnClickEdit}
             >Edit</button></Link>
 
           <Link to='home'>

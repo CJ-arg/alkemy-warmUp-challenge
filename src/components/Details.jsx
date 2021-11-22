@@ -6,17 +6,13 @@ import { editPost, removePost } from "../redux/actionReducers"
 import Form from "./Form";
 import "./details.css"
 
-
 const Details = () => {
   const postDetail = useSelector(store => store.searchList.detail)
-
   const [renderForm, setRenderForm] = useState(false)
   const [isEditing, setIsEditing] = useState(false)
   const [titleEdit, setTitleEdit] = useState('')
   const [bodyEdit, setBodyEdit] = useState('')
-
   const dispatch = useDispatch();
-
 
   const handleOnKeyDown = (e) => {
     const key = e.keyCode
@@ -24,17 +20,21 @@ const Details = () => {
       setIsEditing(false)
     }
   }
+
   const handleOnClickEdit = () => {
     setTitleEdit(postDetail[0].title)
     setBodyEdit(postDetail[0].body)
     setIsEditing(true)
   }
+
   const handleInputChange = (e) => {
     setBodyEdit(e.target.value)
   }
+
   const handleInputChangeTitle = (e) => {
     setTitleEdit(e.target.value)
   }
+
   const handleOnClickEditSubmit = (e) => {
     e.preventDefault
     setTitleEdit(e.target.value)
@@ -45,7 +45,6 @@ const Details = () => {
   return (isEditing ? <div className="contDetail">
     <div className="card1 mb-3 detailcardedit" >
       <div className="card-body">EDIT YOUR POST </div>
-
       <input
         value={titleEdit}
         onChange={handleInputChangeTitle}
@@ -61,15 +60,12 @@ const Details = () => {
         autoFocus={true}
         placeholder="your post...."
       />
-
       <div className="editButton" ><button
         className="btn btn-success btn-m ms-3 float-end "
         onClick={handleOnClickEditSubmit}
       >Submit</button></div>
-
     </div>
   </div> :
-
     <div >
       {postDetail.map((item) => (
         <div className="contDetail">
@@ -89,18 +85,15 @@ const Details = () => {
                   className="btn btn-success btn-m ms-3 float-center "
                   onClick={handleOnClickEdit}
                 >Edit</button></Link>
-
               <Link to='home'>
                 <button
                   className="btn btn-danger btn-m ms-3 float-center"
                   onClick={() => dispatch(removePost(item.id))}
                 >Delete</button></Link></div>
-
           </div> </div>
       ))
       }
       <div>{renderForm && <Form />}</div>
-
     </div >
   );
 };

@@ -1,7 +1,6 @@
 import Routes from "./Routes/Routes";
 import {
   BrowserRouter as Router,
-
 } from "react-router-dom";
 import React from "react";
 import generateStore from "./redux/store";
@@ -12,11 +11,8 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router>
-
         <Routes />
       </Router>
-
-
     </Provider>
   );
 };

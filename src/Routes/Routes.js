@@ -20,7 +20,6 @@ const Routes = (props) => {
   return (
     <Router>
       <NavBarMenu />
-
       <Switch>
         <Route exact path="/about" component={About} />
         <ProtectedRoutes
@@ -29,12 +28,6 @@ const Routes = (props) => {
           component={Details}
           isAuth={true}
         />
-        {/* <ProtectedRoutes
-          exact
-          path="/search"
-          component={Search}
-          isAuth={true}
-        /> */}
         <ProtectedRoutes exact path="/home" isAuth={isAuth} component={Home} />
         <Route exact path="/login" component={Login} />
         <Redirect to="/home" />

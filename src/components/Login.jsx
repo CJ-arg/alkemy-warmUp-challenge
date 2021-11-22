@@ -17,7 +17,6 @@ const Login = () => {
             history.push('/home');
         }, 3000);
     }
-
     const sendPostRequest = async (values) => {
         try {
             const resp = await axios.post('http://challenge-react.alkemy.org/', values);
@@ -25,7 +24,6 @@ const Login = () => {
                 JSON.stringify(resp.data));
             dispatch(isAuth())
         } catch (err) {
-
         }
     };
     return (
@@ -50,7 +48,6 @@ const Login = () => {
                         }
                         return error
                     }}
-
                     onSubmit={(values, { resetForm }) => {
                         sendPostRequest(values)
                         resetForm()

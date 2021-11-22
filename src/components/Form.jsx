@@ -3,13 +3,10 @@ import { newPost } from "../redux/actionReducers"
 import { useDispatch } from 'react-redux'
 import "./form.css";
 
-
 const Form = ({ addTask }) => {
-
   const dispatch = useDispatch();
   const [inputTitleValue, setInputTitleValue] = useState("");
   const [inputValue, setInputValue] = useState("");
-
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
@@ -22,18 +19,14 @@ const Form = ({ addTask }) => {
     console.log("aca ento en handlesub", inputTitleValue, inputValue);
     if (inputValue.trim() === "") return;
     dispatch(newPost({ title: inputTitleValue, body: inputValue }))
-
-
     setInputValue("");
     setInputTitleValue("")
   };
-
 
   return (
     <form onSubmit={handleFormSub}>
       <div className="row containerEdit">
         <div className="col-sm-2"></div>
-
         <div className="col-sm-8">
           <input
             value={inputTitleValue}
@@ -52,9 +45,7 @@ const Form = ({ addTask }) => {
         </div>
         <br />
       </div>
-
       <div className="todoButton2">
-
         <button
           className="btn btn-dark btn-m ms-3 float-center"
           onClick={handleFormSub}

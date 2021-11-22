@@ -19,15 +19,12 @@ const SearcList = () => {
               <div className="card-body">
                 <div className="user-text">USER:{item.userId} Post: {item.id} </div>
                 <div className="title-div">  <span className="card-text">{item.title.toUpperCase()} </span><br /></div>
-
-
                 <div className="buttons-div">
                   <Link to='details'>
                     <button
                       className="btn btn-info btn-m x1 float-center"
                       onClick={() => dispatch(detailAction(item.id))}
                     >Info</button></Link>
-
                   <Link to='details'>
                     <button
                       className="btn btn-success btn-m ms-3 float-center "
@@ -39,9 +36,6 @@ const SearcList = () => {
                       onClick={() => dispatch(removePost(item.id))}
                     >Delete</button></Link>
                 </div>
-
-
-
               </div>
             </div>
           </div>

@@ -3,7 +3,6 @@ import './navbarmenu.css'
 
 const Navbarmenu = () => {
     const [showLinks, setShowLinks] = useState(false)
-
     return (
         <div className="Nav">
             <div className='leftSide'>
@@ -17,5 +16,4 @@ const Navbarmenu = () => {
         </div>
     )
 }
-
 export default Navbarmenu
